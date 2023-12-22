@@ -10,7 +10,7 @@ const Card = ({ image, title, rating, price, discount }) => {
       .then((data) => setItem(data.items))
       .catch((err) => console.log(err));
   }, []);
-  console.log(items);
+
   return (
     <div className="card-body">
       <div className="card-image">

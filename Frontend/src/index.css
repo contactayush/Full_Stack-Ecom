@@ -691,6 +691,7 @@
   margin-top: 50px;
   gap: 20px;
   padding: 20px 24px 20px 24px;
+  height: fit-content;
 }
 .buttons {
   display: flex;
@@ -730,4 +731,17 @@
   letter-spacing: 0em;
   text-align: center;
   color: #ffffff;
+}
+.active {
+  height: fit-content;
+}
+.inactive {
+  height: 65px;
+}
+.d_slider {
+  rotate: 180deg;
+}
+.d_c {
+  rotate: 180deg;
+  display: none;
 }

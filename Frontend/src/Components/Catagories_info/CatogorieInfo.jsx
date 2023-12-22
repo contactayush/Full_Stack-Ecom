@@ -6,6 +6,7 @@ import { ChevronRight, ChevronUp } from "lucide-react";
 import { SlidersHorizontal } from "lucide-react";
 import RangeSlider from "../Slider/RangeSlider";
 const filterItems = ["T-shirts", "Shorts", "Shirts", "Hoodie", "Jeans"];
+
 const dress_styles = ["Casual", "Formal", "Party", "Gym"];
 const colors = [
   "#00C12B",
@@ -23,7 +24,26 @@ const sizes = ["S", "M", "L", "XL", "XXL", "XXXL"];
 const CatogorieInfo = () => {
   const { cat_name } = useParams();
   const [items, setItem] = useState([]);
-
+  const [open, setOpen] = useState(true);
+  const [isslider, setFilter] = useState(true);
+  const [iscolor, setcolor] = useState(true);
+  const [issize, setsize] = useState(true);
+  const [isstyle, setstyle] = useState(true);
+  const ClickHandler = () => {
+    setOpen(!open);
+  };
+  const Clickcolor = () => {
+    setcolor(!iscolor);
+  };
+  const sliderHandler = () => {
+    setFilter(!isslider);
+  };
+  const sizeHandler = () => {
+    setsize(!issize);
+  };
+  const styleHandler = () => {
+    setstyle(!isstyle);
+  };
   useEffect(() => {
     const data = getDataByCategory(cat_name)
       .then((data) => setItem(data.items))
@@ -44,97 +64,140 @@ const CatogorieInfo = () => {
         </p>
       </div>
       <div className="cat_container flex gap-[58px]">
-        <div className="filters_con max-w-[295px] max-h-[1220px] rounded-[20px] text- [#0000001A] border">
+        <div
+          className={`filters_con max-w-[295px] rounded-[20px] border  ${
+            open ? "active" : "inactive"
+          } `}
+        >
           <div className="filter-title w-[247px] h-[27px] justify-between flex">
             <span className="w-[57px] h-[27px] font-[Satoshi] font-bold text-[20px] leading-7 text-[#000000]">
               Filters
             </span>
-            <SlidersHorizontal className="rotate-90 w-[20.25px] h-[18.75px] mt-[4.63px] text-[#00000066]" />
+            <SlidersHorizontal
+              className="rotate-90 w-[20.25px] h-[18.75px] mt-[4.63px] text-[#00000066] hover:cursor-pointer"
+              onClick={ClickHandler}
+            />
           </div>
-          <div className="border bg-[#0000001a] opacity-50"></div>
-          <div className="flex flex-col gap-4 w-[247px] h-40">
-            {filterItems.map((item, index) => (
-              <div key={index} className="Casual_items_ele">
-                <span className="w-[52px] h-[11px] font-[Satoshi] font-normal leading-[21.6px] text-[#00000099]">
-                  {item}
-                </span>
-                <ChevronRight className="w-[16px] h-[16px] mt-[13.75px] ml-[5.25px] text-[#00000099]" />
-              </div>
-            ))}
-          </div>
-          <div className="border bg-[#0000001a] opacity-50 mt-[49px]"></div>
-          <div className="filter-title w-[247px] h-[27px] justify-between flex">
-            <span className="w-[48px] h-[27px] font-[Satoshi] font-bold text-[20px] leading-7 text-[#000000]">
-              Price
-            </span>
-            <ChevronUp className=" w-[17.25px] h-[18.75px] mt-[4.63px] " />
-          </div>
-          <div className="slider">
-            <RangeSlider />
-          </div>
-          <div className="border bg-[#0000001a] opacity-50 "></div>
-          <div className="filter-title w-[247px] h-[27px] justify-between flex">
-            <span className="w-[48px] h-[27px] font-[Satoshi] font-bold text-[20px] leading-7 text-[#000000]">
-              Colors
-            </span>
-            <ChevronUp className=" w-[17.25px] h-[18.75px] mt-[4.63px] " />
-          </div>
-          <div className="color_con w-[247px] h-[90px] gap-[10px] flex flex-col">
-            <div className="colors max-w-[247px] h-[37px] justify-between flex flex-wrap">
-              {colors.slice(0, 5).map((color) => (
-                <div
-                  className="color border-2 text-[#00000033]"
-                  style={{ background: color }}
-                ></div>
-              ))}
-            </div>
-            <div className="colors max-w-[247px] h-[37px] justify-between flex flex-wrap">
-              {colors.slice(5, 10).map((color) => (
-                <div
-                  className="color border-2 text-[#00000033]"
-                  style={{ background: color }}
-                ></div>
-              ))}
-            </div>
-          </div>
-          <div className="border bg-[#0000001a] opacity-50 "></div>
-          <div className="filter-title w-[247px] h-[27px] justify-between flex">
-            <span className="w-[48px] h-[27px] font-[Satoshi] font-bold text-[20px] leading-7 text-[#000000]">
-              Size
-            </span>
-            <ChevronUp className=" w-[17.25px] h-[18.75px] mt-[4.63px] " />
-          </div>
-          <div className="sizes_con max-w-[247px] h-[227px] flex gap-2">
-            {
-              <div className="buttons ">
-                {sizes.map((size) => (
-                  <button className="size_btn  text- [#00000099] ">
-                    {size}
-                  </button>
+          {open && (
+            <div className="flex flex-col gap-3">
+              <div className="border bg-[#0000001a] opacity-50"></div>
+              <div className="flex flex-col gap-4 w-[247px] h-40">
+                {filterItems.map((item, index) => (
+                  <div key={index} className="Casual_items_ele">
+                    <span className="w-[52px] h-[11px] font-[Satoshi] font-normal leading-[21.6px] text-[#00000099]">
+                      {item}
+                    </span>
+                    <ChevronRight className="w-[16px] h-[16px] mt-[13.75px] ml-[5.25px] text-[#00000099]" />
+                  </div>
                 ))}
               </div>
-            }
-          </div>
-          <div className="border bg-[#0000001a] opacity-50 "></div>
-          <div className="filter-title w-[247px] h-[27px] justify-between flex">
-            <span className="w-[103px] h-[27px] font-[Satoshi] font-bold text-[20px] leading-7 text-[#000000]">
-              Dress Style
-            </span>
-            <ChevronUp className=" w-[17.25px] h-[18.75px] mt-[4.63px] " />
-          </div>
-          <div className="flex flex-col gap-4 w-[247px] h-40">
-            {dress_styles.map((d_style, index) => (
-              <div key={index} className="Casual_items_ele">
-                <span className="w-[52px] h-[11px] font-[Satoshi] font-normal leading-[21.6px] text-[#00000099]">
-                  {d_style}
+              <div className="border bg-[#0000001a] opacity-50 mt-[49px]"></div>
+              <div className="filter-title w-[247px] h-[27px] justify-between flex">
+                <span className="w-[48px] h-[27px] font-[Satoshi] font-bold text-[20px] leading-7 text-[#000000]">
+                  Price
                 </span>
-                <ChevronRight className="w-[16px] h-[16px] mt-[13.75px] ml-[5.25px] text-[#00000099]" />
+                <ChevronUp
+                  className={`w-[17.25px] h-[18.75px] mt-[4.63px] hover:cursor-pointer ${
+                    isslider ? "a_slider" : "d_slider"
+                  }`}
+                  onClick={sliderHandler}
+                />
               </div>
-            ))}
-          </div>
-          <button className="filter_btn mt-[15px]">
-            <span>Apply Filter</span>
-          </button>
+              {isslider && (
+                <div
+                  className={`slider  ${isslider ? "a_slider" : "d_slider"} `}
+                >
+                  <RangeSlider />
+                </div>
+              )}
+              <div className="border bg-[#0000001a] opacity-50 "></div>
+              <div className="filter-title w-[247px] h-[27px] justify-between flex">
+                <span className="w-[48px] h-[27px] font-[Satoshi] font-bold text-[20px] leading-7 text-[#000000]">
+                  Colors
+                </span>
+                <ChevronUp
+                  className={` w-[17.25px] h-[18.75px] mt-[4.63px] hover:cursor-pointer ${
+                    iscolor ? "a_slider" : "d_slider"
+                  }`}
+                  onClick={Clickcolor}
+                />
+              </div>
+              <div
+                className={`color_con w-[247px] h-[90px] gap-[10px] flex flex-col ${
+                  iscolor ? "a_c" : "d_c"
+                }`}
+              >
+                <div className="colors max-w-[247px] h-[37px] justify-between flex flex-wrap">
+                  {colors.slice(0, 5).map((color) => (
+                    <div
+                      className="color border-2 text-[#00000033]"
+                      style={{ background: color }}
+                    ></div>
+                  ))}
+                </div>
+                <div className="colors max-w-[247px] h-[37px] justify-between flex flex-wrap">
+                  {colors.slice(5, 10).map((color) => (
+                    <div
+                      className="color border-2 text-[#00000033]"
+                      style={{ background: color }}
+                    ></div>
+                  ))}
+                </div>
+              </div>
+              <div className="border bg-[#0000001a] opacity-50 "></div>
+              <div className="filter-title w-[247px] h-[27px] justify-between flex">
+                <span className="w-[48px] h-[27px] font-[Satoshi] font-bold text-[20px] leading-7 text-[#000000]">
+                  Size
+                </span>
+                <ChevronUp
+                  className={`w-[17.25px] h-[18.75px] mt-[4.63px] hover:cursor-pointer ${
+                    issize ? "a_slider" : "d_slider"
+                  }`}
+                  onClick={sizeHandler}
+                />
+              </div>
+              {issize && (
+                <div className="sizes_con max-w-[247px] h-[227px] flex gap-2">
+                  {
+                    <div className="buttons ">
+                      {sizes.map((size) => (
+                        <button className="size_btn  text- [#00000099] ">
+                          {size}
+                        </button>
+                      ))}
+                    </div>
+                  }
+                </div>
+              )}
+              <div className="border bg-[#0000001a] opacity-50 "></div>
+              <div className="filter-title w-[247px] h-[27px] justify-between flex">
+                <span className="w-[103px] h-[27px] font-[Satoshi] font-bold text-[20px] leading-7 text-[#000000]">
+                  Dress Style
+                </span>
+                <ChevronUp
+                  className={`w-[17.25px] h-[18.75px] mt-[4.63px] hover:cursor-pointer ${
+                    isstyle ? "a_slider" : "d_slider"
+                  }`}
+                  onClick={styleHandler}
+                />
+              </div>
+              {isstyle && (
+                <div className="flex flex-col gap-4 w-[247px] h-40">
+                  {dress_styles.map((d_style, index) => (
+                    <div key={index} className="Casual_items_ele">
+                      <span className="w-[52px] h-[11px] font-[Satoshi] font-normal leading-[21.6px] text-[#00000099]">
+                        {d_style}
+                      </span>
+                      <ChevronRight className="w-[16px] h-[16px] mt-[13.75px] ml-[5.25px] text-[#00000099]" />
+                    </div>
+                  ))}
+                </div>
+              )}
+              <button className="filter_btn mt-[29px]">
+                <span>Apply Filter</span>
+              </button>
+            </div>
+          )}
         </div>
         <div className="images_container w-[925px]">
           <div className="images_container-title flex gap-[72%] mt-[63px] ml-[44px]">
