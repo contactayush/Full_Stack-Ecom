@@ -1,7 +1,8 @@
 import Items from "../models/Items.js";
 
 export const createItem = async (req, res) => {
-  const { image_url, title, rating, price, discount } = req.body;
+  const { image_url, title, rating, price, discount, description, category } =
+    req.body;
   let item;
   try {
     item = new Items({
@@ -10,6 +11,8 @@ export const createItem = async (req, res) => {
       rating,
       price,
       discount,
+      description,
+      category,
     });
     await item.save();
   } catch (err) {

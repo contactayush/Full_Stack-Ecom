@@ -39,11 +39,11 @@ const CatogorieInfo = () => {
           alt="right"
           className="w-4 h-4 text-[#00000099] mt-[3px]"
         />
-        <p className="cat_name text-[#000000] text-[20px] font-[Poppins] font-[500]">
+        <p className="cat_name text-[#000000] text-[20px] font-[Poppins] font-[500] ">
           {cat_name}
         </p>
       </div>
-      <div className="cat_container flex ">
+      <div className="cat_container flex gap-[58px]">
         <div className="filters_con max-w-[295px] max-h-[1220px] rounded-[20px] text- [#0000001A] border">
           <div className="filter-title w-[247px] h-[27px] justify-between flex">
             <span className="w-[57px] h-[27px] font-[Satoshi] font-bold text-[20px] leading-7 text-[#000000]">
@@ -79,7 +79,7 @@ const CatogorieInfo = () => {
             </span>
             <ChevronUp className=" w-[17.25px] h-[18.75px] mt-[4.63px] " />
           </div>
-          <div className="color_con w-[247px] h-[90px] gap-[16px] flex flex-col">
+          <div className="color_con w-[247px] h-[90px] gap-[10px] flex flex-col">
             <div className="colors max-w-[247px] h-[37px] justify-between flex flex-wrap">
               {colors.slice(0, 5).map((color) => (
                 <div
@@ -136,11 +136,13 @@ const CatogorieInfo = () => {
             <span>Apply Filter</span>
           </button>
         </div>
-        <div className="images_container">
+        <div className="images_container w-[925px]">
           <div className="images_container-title flex gap-[72%] mt-[63px] ml-[44px]">
-            <span>{cat_name}</span>
-            <div className="sorting flex gap-2">
-              <span>Sort by</span>
+            <span className="w-[100px] h-[43px] font-bold text-[32px]">
+              {cat_name}
+            </span>
+            <div className="sorting flex gap-[16px] leading-[3rem]">
+              <span className="text-[#00000099] w-[60px]">Sort by</span>
               <select name="sort" id="sort">
                 <option value="popularity">Popularity</option>
                 <option value="price">Price</option>
@@ -148,7 +150,7 @@ const CatogorieInfo = () => {
               </select>
             </div>
           </div>
-          <div className=" flex gap-10 justify-center w-full flex-wrap mt-8">
+          <div className="w-[965px] grid grid-cols-3 gap-5 mt-6">
             {items?.map((item) => (
               <Card
                 image={item.image_url}
