@@ -5,6 +5,7 @@ import Card from "../Card";
 import { ChevronRight, ChevronUp } from "lucide-react";
 import { SlidersHorizontal } from "lucide-react";
 import RangeSlider from "../Slider/RangeSlider";
+import PaginationRounded from "../Pagination/PaginationRounded";
 const filterItems = ["T-shirts", "Shorts", "Shirts", "Hoodie", "Jeans"];
 
 const dress_styles = ["Casual", "Formal", "Party", "Gym"];
@@ -225,6 +226,10 @@ const CatogorieInfo = () => {
             ))}
           </div>
         </div>
+      </div>
+      <div className="border bg-[#0000001a] opacity-50 w-[925px] h-[1px] ml-[29%] mt-[24px]"></div>
+      <div className="pagination mt-3 flex justify-center ml-48">
+        <PaginationRounded />
       </div>
     </>
   );

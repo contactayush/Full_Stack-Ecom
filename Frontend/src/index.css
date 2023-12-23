@@ -9,6 +9,9 @@
   .color {
     @apply w-[37px] h-[37px] rounded-[50%];
   }
+  .form-inp {
+    @apply text-[#000000];
+  }
 }
 * {
   margin: 0;
