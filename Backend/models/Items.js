@@ -28,6 +28,10 @@ const itemSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  itemtype: {
+    type: String,
+    required: true,
+  },
 });
 
 export default mongoose.model("Items", itemSchema);

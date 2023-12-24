@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getDataByCategory } from "../Data/Data";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { getDataByCategoryAndType } from "../Data/Data";
 import Card from "../Card";
-import { ChevronRight, ChevronUp } from "lucide-react";
+import { ChevronRight, ChevronUp, Loader } from "lucide-react";
 import { SlidersHorizontal } from "lucide-react";
 import RangeSlider from "../Slider/RangeSlider";
 import PaginationRounded from "../Pagination/PaginationRounded";
-const filterItems = ["T-shirts", "Shorts", "Shirts", "Hoodie", "Jeans"];
+const filterItems = ["T-shirt", "Short", "Shirt", "Hoodie", "Jeans"];
 
 const dress_styles = ["Casual", "Formal", "Party", "Gym"];
 const colors = [
@@ -23,44 +23,56 @@ const colors = [
 ];
 const sizes = ["S", "M", "L", "XL", "XXL", "XXXL"];
 const CatogorieInfo = () => {
-  const { cat_name } = useParams();
-  const [items, setItem] = useState([]);
+  const { cat_name } = useParams(); //url shoould be like this /catogories/:cat_name/:itemtype
+  const [items, setItem] = useState(undefined);
   const [open, setOpen] = useState(true);
   const [isslider, setFilter] = useState(true);
   const [iscolor, setcolor] = useState(true);
   const [issize, setsize] = useState(true);
   const [isstyle, setstyle] = useState(true);
-  const ClickHandler = () => {
-    setOpen(!open);
-  };
-  const Clickcolor = () => {
-    setcolor(!iscolor);
-  };
-  const sliderHandler = () => {
-    setFilter(!isslider);
-  };
-  const sizeHandler = () => {
-    setsize(!issize);
-  };
-  const styleHandler = () => {
-    setstyle(!isstyle);
+  let [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const product_type = searchParams.get("product_type");
+
+  const clickHandler = (state, setState) => setState(!state);
+  
+  const handlenavigate = (cat_name) => {
+    navigate(cat_name);
   };
   useEffect(() => {
-    const data = getDataByCategory(cat_name)
+    window.scrollTo(0, 0);
+    const data = getDataByCategoryAndType(cat_name, product_type)
       .then((data) => setItem(data.items))
       .catch((err) => console.log(err));
-  }, []);
+  }, [cat_name, product_type]);
+
+  if (!items) {
+    return (
+      <div className="flex w-full h-[100vh] justify-center items-center">
+        <Loader className="animate-spin" />
+      </div>
+    );
+  }
 
   return (
     <>
       <div className="w-[1240px] mt-[25px] ml-[86px] border-[0.5px] opacity-50 rotate-0 bg-[ #0000001A] border-[#0000001A] leading-1"></div>
       <div className="path flex gap-1 mt-[30px] ml-[84px]">
-        <p className="home w-[43px] h-[11px] ">Home</p>
+        <p
+          className="home w-[43px] h-[11px] hover:cursor-pointer"
+          onClick={() => handlenavigate("/")}
+        >
+          Home
+        </p>
+
         <ChevronRight
           alt="right"
           className="w-4 h-4 text-[#00000099] mt-[3px]"
         />
-        <p className="cat_name text-[#000000] text-[20px] font-[Poppins] font-[500] ">
+        <p
+          onClick={() => handlenavigate(`/Categories/${cat_name}`)}
+          className="cat_name text-[#000000] text-[20px] font-[Poppins] font-[500] cursor-pointer"
+        >
           {cat_name}
         </p>
       </div>
@@ -76,7 +88,7 @@ const CatogorieInfo = () => {
             </span>
             <SlidersHorizontal
               className="rotate-90 w-[20.25px] h-[18.75px] mt-[4.63px] text-[#00000066] hover:cursor-pointer"
-              onClick={ClickHandler}
+              onClick={() => clickHandler(open, setOpen)}
             />
           </div>
           {open && (
@@ -84,7 +96,13 @@ const CatogorieInfo = () => {
               <div className="border bg-[#0000001a] opacity-50"></div>
               <div className="flex flex-col gap-4 w-[247px] h-40">
                 {filterItems.map((item, index) => (
-                  <div key={index} className="Casual_items_ele">
+                  <div
+                    onClick={() => {
+                      setSearchParams({ product_type: item });
+                    }}
+                    key={index}
+                    className="Casual_items_ele cursor-pointer"
+                  >
                     <span className="w-[52px] h-[11px] font-[Satoshi] font-normal leading-[21.6px] text-[#00000099]">
                       {item}
                     </span>
@@ -101,7 +119,7 @@ const CatogorieInfo = () => {
                   className={`w-[17.25px] h-[18.75px] mt-[4.63px] hover:cursor-pointer ${
                     isslider ? "a_slider" : "d_slider"
                   }`}
-                  onClick={sliderHandler}
+                  onClick={() => clickHandler(isslider, setFilter)}
                 />
               </div>
               {isslider && (
@@ -120,7 +138,7 @@ const CatogorieInfo = () => {
                   className={` w-[17.25px] h-[18.75px] mt-[4.63px] hover:cursor-pointer ${
                     iscolor ? "a_slider" : "d_slider"
                   }`}
-                  onClick={Clickcolor}
+                  onClick={() => clickHandler(iscolor, setcolor)}
                 />
               </div>
               <div
@@ -154,7 +172,7 @@ const CatogorieInfo = () => {
                   className={`w-[17.25px] h-[18.75px] mt-[4.63px] hover:cursor-pointer ${
                     issize ? "a_slider" : "d_slider"
                   }`}
-                  onClick={sizeHandler}
+                  onClick={() => clickHandler(issize, setsize)}
                 />
               </div>
               {issize && (
@@ -179,7 +197,7 @@ const CatogorieInfo = () => {
                   className={`w-[17.25px] h-[18.75px] mt-[4.63px] hover:cursor-pointer ${
                     isstyle ? "a_slider" : "d_slider"
                   }`}
-                  onClick={styleHandler}
+                  onClick={() => clickHandler(isstyle, setstyle)}
                 />
               </div>
               {isstyle && (

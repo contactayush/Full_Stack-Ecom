@@ -18,6 +18,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 .container {
   gap: 40px;
   align-items: center;

@@ -12,7 +12,12 @@ function App() {
       <section>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/Categories/:cat_name" element={<CatogorieInfo />} />
+          <Route path="/Categories">
+            <Route
+              path="/Categories/:cat_name"
+              element={<CatogorieInfo />}
+            ></Route>
+          </Route>
           <Route path="/form" element={<Form />} />
         </Routes>
       </section>

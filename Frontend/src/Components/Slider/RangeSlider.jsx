@@ -7,20 +7,20 @@ function valuetext(value) {
 }
 
 export default function RangeSlider() {
-  const [value, setValue] = useState([20, 37]);
+  const [value, setValue] = useState([0, 300]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    console.log(newValue);
   };
 
   return (
     <Box sx={{ width: 247, height: 43 }}>
       <Slider
-        getAriaLabel={() => "Temperature range"}
         value={value}
         onChange={handleChange}
         valueLabelDisplay="auto"
-        // getAriaValueText={valuetext}
+        getAriaValueText={valuetext}
         sx={{ width: 247, borderRadius: 20, color: "#000000" }}
       />
     </Box>
