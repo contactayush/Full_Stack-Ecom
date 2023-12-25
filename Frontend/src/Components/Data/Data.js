@@ -32,12 +32,9 @@ export const getData = async () => {
 };
 
 export const getDataByCategoryAndType = async (...args) => {
-  console.log(args);
   const url = `/item/GetItems/${args[0]}${
     args[1] ? `?product_type=${args[1]}` : ""
   }`;
-
-  console.log(url);
 
   const res = await axios.get(url).catch((err) => console.log(err));
   if (res.status !== 200) {
@@ -45,5 +42,15 @@ export const getDataByCategoryAndType = async (...args) => {
   }
   const data = await res.data;
   console.log(data);
+  return data;
+};
+
+export const getDataById = async (id) => {
+  console.log(id);
+  const res = await axios.get(`/item/${id}`).catch((err) => console.log(err));
+  if (res.status !== 200) {
+    console.log("Unexpected Error Occurred");
+  }
+  const data = await res.data;
   return data;
 };

@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Footer from "./Components/Footer/Footer";
 import CatogorieInfo from "./Components/Catagories_info/CatogorieInfo";
 import Form from "./Components/Form/Form";
+import ItemDetails from "./Components/itemdetails/ItemDetails";
 function App() {
   return (
     <div className="main">
@@ -19,6 +20,7 @@ function App() {
             ></Route>
           </Route>
           <Route path="/form" element={<Form />} />
+          <Route path="/itemdetails/:id" element={<ItemDetails />} />
         </Routes>
       </section>
       <Footer />

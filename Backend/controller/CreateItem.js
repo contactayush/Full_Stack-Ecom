@@ -60,14 +60,28 @@ export const getItemsByCategory = async (req, res) => {
       items = await Items.find({ category: category });
     }
 
-    console.log(items)
+    console.log(items);
   } catch (err) {
     console.log(err);
   }
   if (!items) {
     res.status(500).json({ message: "Request Failed" });
   }
-  console.log("Items Fetched");
+  //console.log("Items Fetched");
   res.status(200).json({ items });
 };
 
+export const getItemsbyid = async (req, res) => {
+  const id = req.params.id;
+  let items;
+  try {
+    items = await Items.findById(id);
+  } catch (err) {
+    console.log(err);
+  }
+  if (!items) {
+    res.status(500).json({ message: "Request Failed" });
+  }
+  console.log("Item by id Fetched");
+  res.status(200).json({ items });
+};

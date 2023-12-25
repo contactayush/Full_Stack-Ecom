@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { getDataByCategoryAndType } from "../Data/Data";
 import Card from "../Card";
@@ -25,6 +25,9 @@ const sizes = ["S", "M", "L", "XL", "XXL", "XXXL"];
 const CatogorieInfo = () => {
   const { cat_name } = useParams(); //url shoould be like this /catogories/:cat_name/:itemtype
   const [items, setItem] = useState(undefined);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = useRef(9);
+
   const [open, setOpen] = useState(true);
   const [isslider, setFilter] = useState(true);
   const [iscolor, setcolor] = useState(true);
@@ -35,7 +38,7 @@ const CatogorieInfo = () => {
   const product_type = searchParams.get("product_type");
 
   const clickHandler = (state, setState) => setState(!state);
-  
+
   const handlenavigate = (cat_name) => {
     navigate(cat_name);
   };
@@ -52,6 +55,16 @@ const CatogorieInfo = () => {
         <Loader className="animate-spin" />
       </div>
     );
+  }
+
+  const indexOfLastItem = currentPage * itemsPerPage.current;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage.current;
+
+  const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
+
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(items.length / itemsPerPage); i++) {
+    pageNumbers.push(i);
   }
 
   return (
@@ -147,16 +160,18 @@ const CatogorieInfo = () => {
                 }`}
               >
                 <div className="colors max-w-[247px] h-[37px] justify-between flex flex-wrap">
-                  {colors.slice(0, 5).map((color) => (
+                  {colors.slice(0, 5).map((color, idx) => (
                     <div
+                      key={idx}
                       className="color border-2 text-[#00000033]"
                       style={{ background: color }}
                     ></div>
                   ))}
                 </div>
                 <div className="colors max-w-[247px] h-[37px] justify-between flex flex-wrap">
-                  {colors.slice(5, 10).map((color) => (
+                  {colors.slice(5, 10).map((color, idx) => (
                     <div
+                      key={idx}
                       className="color border-2 text-[#00000033]"
                       style={{ background: color }}
                     ></div>
@@ -179,8 +194,11 @@ const CatogorieInfo = () => {
                 <div className="sizes_con max-w-[247px] h-[227px] flex gap-2">
                   {
                     <div className="buttons ">
-                      {sizes.map((size) => (
-                        <button className="size_btn  text- [#00000099] ">
+                      {sizes.map((size, idx) => (
+                        <button
+                          key={idx}
+                          className="size_btn  text- [#00000099] "
+                        >
                           {size}
                         </button>
                       ))}
@@ -232,22 +250,35 @@ const CatogorieInfo = () => {
               </select>
             </div>
           </div>
+            {currentItems.length === 0 && (
+              <div className="flex justify-center items-center w-full h-[450px]">
+                <p className="text-2xl ">No items found</p>
+              </div>
+            )}
           <div className="w-[965px] grid grid-cols-3 gap-5 mt-6">
-            {items?.map((item) => (
-              <Card
-                image={item.image_url}
-                title={item.title}
-                rating={item.rating}
-                price={item.price}
-                discount={item?.discount}
-              />
-            ))}
+            {currentItems.length > 0 &&
+              currentItems?.map((item, id) => (
+                <Card
+                  key={id}
+                  id={item._id}
+                  image={item.image_url}
+                  title={item.title}
+                  rating={item.rating}
+                  price={item.price}
+                  discount={item?.discount}
+                />
+              ))}
+          </div>
+          <div className="border bg-[#0000001a] opacity-50 w-[925px] h-[1px]  mt-[45px]"></div>
+          <div className="pagination mt-4 flex justify-center ">
+            <PaginationRounded
+              totalitems={items.length}
+              itemsPerPage={itemsPerPage.current}
+              setCurrentPage={setCurrentPage}
+              currentPage={currentPage}
+            />
           </div>
         </div>
-      </div>
-      <div className="border bg-[#0000001a] opacity-50 w-[925px] h-[1px] ml-[29%] mt-[24px]"></div>
-      <div className="pagination mt-3 flex justify-center ml-48">
-        <PaginationRounded />
       </div>
     </>
   );

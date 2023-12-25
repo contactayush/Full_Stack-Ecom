@@ -3,16 +3,25 @@ import { useState } from "react";
 import { getData } from "./Data/Data.js";
 import Full_Star from "../assets/Full_Star.png";
 import Half_Star from "../assets/Half_Star.png";
-const Card = ({ image, title, rating, price, discount }) => {
+import { Link, useNavigate } from "react-router-dom";
+const Card = ({ image, title, rating, price, discount, id }) => {
   const [items, setItem] = useState([]);
+  console.log(id);
+  const navigate = useNavigate();
   useEffect(() => {
     getData()
       .then((data) => setItem(data.items))
       .catch((err) => console.log(err));
   }, []);
 
+  const navigationhandler = (id) => {
+    navigate(id);
+  };
   return (
-    <div className="card-body">
+    <div
+      className="card-body hover:cursor-pointer"
+      onClick={() => navigationhandler(`/itemdetails/${id}`)}
+    >
       <div className="card-image">
         <img src={image} className="card-img" />
       </div>
