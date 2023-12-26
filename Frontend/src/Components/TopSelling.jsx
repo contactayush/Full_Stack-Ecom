@@ -47,7 +47,7 @@ const TopSelling = () => {
       </div>
       <div className="view_all_btn">
         <button className="view_btn" onClick={Click_Handler}>
-          <span className="View_text">View All</span>
+          <span className="View_text">{isfull ? `View Less` : `View All`}</span>
         </button>
       </div>
     </div>

@@ -10,6 +10,7 @@ export const createItem = async (req, res) => {
     description,
     category,
     itemtype,
+    images_url,
   } = req.body;
   let item;
   try {
@@ -22,6 +23,7 @@ export const createItem = async (req, res) => {
       description,
       category,
       itemtype,
+      images_url,
     });
     await item.save();
   } catch (err) {

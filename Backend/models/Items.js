@@ -5,6 +5,7 @@ const itemSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  images_url: [{ type: String, required: true }],
   title: {
     type: String,
     required: true,
