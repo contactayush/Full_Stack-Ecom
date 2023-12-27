@@ -19,6 +19,7 @@ const ItemDetails = () => {
   console.log(items);
 
   return (
+    //updates
     <div className="page_details_con">
       <div className="routes_text"></div>
       <div className="product_detail_con">
