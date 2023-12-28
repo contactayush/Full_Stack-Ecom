@@ -20,6 +20,7 @@ const ItemDetails = () => {
 
   return (
     //updates
+    //brief updates
     <div className="page_details_con">
       <div className="routes_text"></div>
       <div className="product_detail_con">
