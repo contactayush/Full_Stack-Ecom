@@ -23,17 +23,30 @@ const ItemDetails = () => {
     //brief updates
     <div className="page_details_con">
       <div className="routes_text"></div>
-      <div className="product_detail_con">
-        <div className="product_detail_images">
+      <div className="product_detail_con justify-center flex  mt-[7%] gap-[25px]">
+        <div className="product_detail_images ">
           <div className="small_images"></div>
           <div className="big_image w-[444px] h-[598px]">
             <img
               src={items.image_url}
-              className="w-[444px] h-[530px] rounded-[20px] mt-[25%] ml-[80%]"
+              //w-[300px] h-[345px] rounded-[20px] mt-[25%] ml-[90%]
             />
           </div>
         </div>
-        <div className="product_detail_content"></div>
+        <div className="product_detail_content flex flex-col gap-2">
+          <div className="title">
+            <p>{items.title}</p>
+          </div>
+          <div className="rating">
+            <p>{items.rating}/5</p>
+          </div>
+          <div className="price">
+            <p>${items.price}</p>
+          </div>
+          <div className="desp">
+            <p>{items.description}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
