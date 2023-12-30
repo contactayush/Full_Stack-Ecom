@@ -1,6 +1,7 @@
 import Items from "../models/Items.js";
 
 export const createItem = async (req, res) => {
+  //item creation
   const {
     image_url,
     title,
@@ -13,6 +14,7 @@ export const createItem = async (req, res) => {
     images_url,
   } = req.body;
   let item;
+
   try {
     item = new Items({
       image_url,
