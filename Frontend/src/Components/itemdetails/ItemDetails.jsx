@@ -109,7 +109,7 @@ const ItemDetails = () => {
             ))}
           </div>
           <div className="border bg-[#0000001a] opacity-50 w-[590px] h-[1px]  mt-[5px]"></div>
-          <div className="cart-count flex gap-[10px]">
+          <div className="cart-count flex gap-[10px] mt-[13px]">
             <div className="counter flex w-[170px] h-[52px] py-4 px-5 justify-between items-center rounded-[62px] bg-[#F0F0F0]">
               <button
                 className="minus w-[24px] h-[70px] text-[35px]"
@@ -125,11 +125,19 @@ const ItemDetails = () => {
                 <p>+</p>
               </button>
             </div>
-            <div className="cart-button flex w-[400px] h-[52px] py-[16px] px-[54px] justify-center items-center gap-[12px] rounded-[62px] bg-[#000000]">
+            <div className="cart-button flex w-[400px] h-[52px] py-[16px] px-[54px] justify-center items-center gap-[12px] rounded-[62px] bg-[#000000] hover:cursor-pointer">
               <button className="text-[#FFFFFF]">Add to Cart</button>
             </div>
           </div>
         </div>
+      </div>
+      <div className="flex flex-col mt-[80px]">
+        <div className="line-content flex max-w-[1251px] ml-[292px] gap-[354px]">
+          <div className="t-1">Product Details</div>
+          <div className="t-1">Rating & Reviews</div>
+          <div className="t-1">FAQs</div>
+        </div>
+        <div className="border bg-[#0000001a] opacity-50 w-[1251px] h-[1px] ml-[140px] "></div>
       </div>
     </div>
   );

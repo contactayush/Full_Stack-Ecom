@@ -4,12 +4,14 @@ const app = express();
 import dotenv from "dotenv";
 import itemRouter from "./Routes/ItemRoute.js";
 import userrouter from "./Routes/UserRoute.js";
+import reviewrouter from "./Routes/Review.js";
 dotenv.config();
 const port = process.env.port_no;
 app.use(express.json());
 app.use(cors());
 app.use("/item", itemRouter);
 app.use("/user", userrouter);
+app.use("/review", reviewrouter);
 import { DB_CONNECT } from "./Config/Database.js";
 DB_CONNECT();
 app.listen(port, () => {
