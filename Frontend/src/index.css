@@ -12,6 +12,9 @@
   .form-inp {
     @apply text-[#000000];
   }
+  .sm_img {
+    @apply w-[152px] h-[167px]  ml-3 rounded-[20px] text-[#000000];
+  }
 }
 * {
   margin: 0;
@@ -717,7 +720,7 @@ html {
   font-weight: 400;
   line-height: 19px;
   letter-spacing: 0em;
-  text-align: left;
+  text-align: center;
 }
 .filter_btn {
   width: 247px;
@@ -752,4 +755,15 @@ html {
 .d_c {
   rotate: 180deg;
   display: none;
+}
+.active-sm-img {
+  border: 1px solid #000000;
+}
+.item-title {
+  font-family: Integral CF;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: 0em;
+  text-align: left;
 }
