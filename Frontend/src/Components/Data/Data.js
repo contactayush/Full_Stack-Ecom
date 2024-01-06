@@ -46,11 +46,23 @@ export const getDataByCategoryAndType = async (...args) => {
 };
 
 export const getDataById = async (id) => {
-  console.log(id);
   const res = await axios.get(`/item/${id}`).catch((err) => console.log(err));
   if (res.status !== 200) {
     console.log("Unexpected Error Occurred");
   }
   const data = await res.data;
   return data;
+};
+
+export const getreview = async () => {
+  const res = await axios
+    .get("/review/getreviews")
+    .catch((err) => console.log(err));
+
+  if (res.status !== 200) {
+    console.log("Unexpected Error Occurred");
+  }
+  const data = await res.data;
+  console.log(data);
+  return data.reviews;
 };

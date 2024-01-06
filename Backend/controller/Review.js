@@ -21,3 +21,16 @@ export const createReview = async (req, res) => {
   }
   res.status(201).json({ message: "Review added", review });
 };
+
+export const getReviews = async (req, res) => {
+  let reviews;
+  try {
+    reviews = await Review.find({});
+  } catch (error) {
+    res.status(500).json({ message: "Server Error" });
+  }
+  if (!reviews) {
+    res.status(400).json({ message: "No reviews found" });
+  }
+  res.status(200).json({ message: "Reviews found", reviews });
+};

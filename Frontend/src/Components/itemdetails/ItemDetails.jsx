@@ -1,14 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getDataById } from "../Data/Data";
+import { getDataById, getreview } from "../Data/Data";
+import { Sliders, ChevronDown } from "lucide-react";
+import Review from "../Reviews/Review";
 
 const ItemDetails = () => {
   const { id } = useParams();
   const [items, SetItems] = useState([]);
-  const [imagechange, SetImageChange] = useState(false);
+  const [reviews, SetReviews] = useState([]);
   const [count, SetCount] = useState(0);
   const count_handler = () => {
     SetCount(count + 1);
+  };
+  const ref = useRef();
+
+  const handleClick = () => {
+    if (ref.current.style.border) {
+      ref.current.style.border = "";
+    } else {
+      ref.current.style.border = "1px solid #000000";
+    }
   };
   const count_handler_minus = () => {
     if (count <= 0) {
@@ -16,22 +27,24 @@ const ItemDetails = () => {
     }
     SetCount(count - 1);
   };
-  const image_handler = () => {
-    SetImageChange((prev) => !prev);
-  };
-  console.log(imagechange);
+
   console.log(id);
 
   useEffect(() => {
     getDataById(id)
       .then((data) => {
         SetItems(data.items);
+        getreview()
+          .then((data) => SetReviews(data))
+          .catch((err) => console.log(err));
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
   console.log(items);
+  console.log(reviews);
   let discount = items.discount;
   let price = items.price;
   const color = ["#000000", "#EE2222", "#35A6D0"];
@@ -43,14 +56,22 @@ const ItemDetails = () => {
         <div className="product_detail_images flex ">
           <div className="small_images flex flex-col gap-[18px]">
             <img
+              ref={ref}
               src={items.image_url}
-              className={`sm_img hover:cursor-pointer ${
-                imagechange ? "active-sm-img" : "deactive-sm-img"
-              }`}
-              onClick={image_handler}
+              className="sm_img hover:cursor-pointer"
+              onClick={handleClick}
             />
-            <img src={items.image_url} className="sm_img" />
-            <img src={items.image_url} className="sm_img" />
+            <img
+              src={items.image_url}
+              className="sm_img hover:cursor-pointer"
+              onClick={handleClick}
+              ref={ref}
+            />
+            <img
+              src={items.image_url}
+              className="sm_img hover:cursor-pointer"
+              onClick={handleClick}
+            />
           </div>
           <div className="big_image  ml-[20px]">
             <img
@@ -138,6 +159,46 @@ const ItemDetails = () => {
           <div className="t-1">FAQs</div>
         </div>
         <div className="border bg-[#0000001a] opacity-50 w-[1251px] h-[1px] ml-[140px] "></div>
+        <div className="review-heading flex max-w-[1251px] gap-[64%] ml-[9.5%] mt-[20px]">
+          <div>
+            <p className="w-[125px] h-[32px] font-Satoshi font-bold text-[23px] leading-[33.4px] text-[#000000]">
+              All Reviews
+            </p>
+            <p className="count-reviews"></p>
+          </div>
+
+          <div className="flex gap-[10px] max-w-[345px] max-h-[48px]">
+            <div className=" slider-con w-[48px] h-[48px] rounded-[62px] flex justify-between bg-[#F0F0F0]">
+              <Sliders className="h-[24px] w-[24px]" />
+            </div>
+            <div className="lat-d w-[120px] h-[48px] rounded-[62px] flex justify-between bg-[#F0F0F0]">
+              <p className="lat-text w-[43px] h-[22px] text-[#000000]">
+                Latest
+              </p>
+              <ChevronDown className="w-[16px] h-[13px]" />
+            </div>
+            <button className="Review-btn bg-[#000000] text-[#FFFFFF]">
+              Write a Review
+            </button>
+          </div>
+        </div>
+        <div className="review-post">
+          {reviews.length > 0 ? (
+            reviews?.map((review, id) => {
+              return (
+                <Review
+                  key={id}
+                  name={review.name}
+                  comment={review.comment}
+                  rating={review.rating}
+                  date={review.posted_on}
+                />
+              );
+            })
+          ) : (
+            <div className="">No Reviews</div>
+          )}
+        </div>
       </div>
     </div>
   );
