@@ -3,7 +3,7 @@ import HomeInfo from "./HomeInfo";
 import NewArrivals from "./NewArrivals";
 import TopSelling from "./TopSelling";
 import Categories from "./Categories";
-import Footer from "./Footer/Footer";
+
 
 const HomePage = () => {
   return (

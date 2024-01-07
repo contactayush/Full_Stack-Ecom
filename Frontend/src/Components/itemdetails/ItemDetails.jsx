@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getDataById, getreview } from "../Data/Data";
+import { getDataById, getreview, getData } from "../Data/Data";
 import { Sliders, ChevronDown } from "lucide-react";
 import Review from "../Reviews/Review";
-
+import Card from "../Card";
 const ItemDetails = () => {
   const { id } = useParams();
   const [items, SetItems] = useState([]);
+  const [posts, setPosts] = useState([]);
   const [reviews, SetReviews] = useState([]);
   const [count, SetCount] = useState(0);
   const count_handler = () => {
@@ -42,7 +43,12 @@ const ItemDetails = () => {
         console.log(err);
       });
   }, []);
-
+  useEffect(() => {
+    getData()
+      .then((data) => setPosts(data))
+      .catch((err) => console.log(err));
+  }, []);
+  console.log(posts.items);
   console.log(items);
   console.log(reviews);
   let discount = items.discount;
@@ -159,7 +165,7 @@ const ItemDetails = () => {
           <div className="t-1">FAQs</div>
         </div>
         <div className="border bg-[#0000001a] opacity-50 w-[1251px] h-[1px] ml-[140px] "></div>
-        <div className="review-heading flex max-w-[1251px] gap-[64%] ml-[9.5%] mt-[20px]">
+        <div className="review-heading flex max-w-[1251px] gap-[60%] ml-[9.5%] mt-[20px]">
           <div className="flex gap-[12px]">
             <p className="w-[125px] h-[32px] font-Satoshi font-bold text-[23px] leading-[33.4px] text-[#000000]">
               All Reviews
@@ -184,7 +190,7 @@ const ItemDetails = () => {
             </button>
           </div>
         </div>
-        <div className="review-post w-[1251px] flex flex-wrap ml-[137px] mt-[50px] gap-[12px]">
+        <div className="review-post  flex flex-wrap justify-center items-center mt-[50px] gap-[24px]">
           {reviews.length > 0 ? (
             reviews?.map((review, id) => {
               return (
@@ -202,6 +208,31 @@ const ItemDetails = () => {
               No Reviews
             </div>
           )}
+        </div>
+        <div className="more-reviews flex justify-center items-center">
+          <button className="w-[230px] h-[52px] py-[16px] px-[40px] rounded-[62px] border flex gap-[12px] mt-[30px]">
+            <p className="w-[140px] h-[22px] font-[Satoshi] font-medium text-[16px] leading-[21.6px] text-[#000000] ">
+              Load More Reviews
+            </p>
+          </button>
+        </div>
+      </div>
+      <div className="items-container flex flex-col justify-center items-center">
+        <span className="title mt-[30px]">YOU MIGHT ALSO LIKE</span>
+        <div className="posts-container flex gap-[30px] mt-[30px]">
+          {posts.items?.slice(0, 4).map((item, id) => {
+            return (
+              <Card
+                key={item._id}
+                id={item._id}
+                title={item.title}
+                price={item.price}
+                rating={item.rating}
+                image={item.image_url}
+                discount={item.discount}
+              />
+            );
+          })}
         </div>
       </div>
     </div>
