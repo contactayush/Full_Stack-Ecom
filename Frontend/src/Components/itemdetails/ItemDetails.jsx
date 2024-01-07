@@ -160,11 +160,13 @@ const ItemDetails = () => {
         </div>
         <div className="border bg-[#0000001a] opacity-50 w-[1251px] h-[1px] ml-[140px] "></div>
         <div className="review-heading flex max-w-[1251px] gap-[64%] ml-[9.5%] mt-[20px]">
-          <div>
+          <div className="flex gap-[12px]">
             <p className="w-[125px] h-[32px] font-Satoshi font-bold text-[23px] leading-[33.4px] text-[#000000]">
               All Reviews
             </p>
-            <p className="count-reviews"></p>
+            <p className="count-reviews mt-[5px] text-[#00000099] font-normal">
+              ({reviews.length})
+            </p>
           </div>
 
           <div className="flex gap-[10px] max-w-[345px] max-h-[48px]">
@@ -182,7 +184,7 @@ const ItemDetails = () => {
             </button>
           </div>
         </div>
-        <div className="review-post">
+        <div className="review-post w-[1251px] flex flex-wrap ml-[137px] mt-[50px] gap-[12px]">
           {reviews.length > 0 ? (
             reviews?.map((review, id) => {
               return (
@@ -196,7 +198,9 @@ const ItemDetails = () => {
               );
             })
           ) : (
-            <div className="">No Reviews</div>
+            <div className="flex justify-center items-center text-[20px] text-[#000000] font-normal">
+              No Reviews
+            </div>
           )}
         </div>
       </div>
