@@ -3,7 +3,12 @@ import down_arrow from "../assets/chevron-down.png";
 import search from "../assets/search.png";
 import cart from "../assets/shopping-cart.png";
 import user from "../assets/user.png";
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
+  const navigate = useNavigate();
+  const navigateHandler = () => {
+    navigate("/cart");
+  };
   return (
     <header className="container">
       <div className="logo">
@@ -33,7 +38,12 @@ const Navbar = () => {
       />
       <div className="cart-user">
         <div className="cart">
-          <img src={cart} alt="cart" className="cart-logo" />
+          <img
+            src={cart}
+            alt="cart"
+            className="cart-logo"
+            onClick={navigateHandler}
+          />
         </div>
         <div className="user">
           <img src={user} alt="user" className="user-logo" />

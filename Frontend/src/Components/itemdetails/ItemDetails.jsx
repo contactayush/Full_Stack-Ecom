@@ -1,17 +1,48 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getDataById, getreview, getData } from "../Data/Data";
-import { Sliders, ChevronDown } from "lucide-react";
-import Review from "../Reviews/Review";
+import { getDataById, getData } from "../Data/Data";
+
 import Card from "../Card";
+import { useSelector, useDispatch } from "react-redux";
+import { addCart, removeCart } from "../Redux/Slice/CartSlice";
+import { useNavigate } from "react-router-dom";
+import { increment, decrement } from "../Redux/Slice/CounterSlice";
+import Rating from "./Elements/Rating";
+import Product_Info from "./Elements/Product_Info";
+import Faqs from "./Elements/Faqs";
 const ItemDetails = () => {
+  const Cart = useSelector((state) => state.Cart);
+  const Count = useSelector((state) => state.Counter);
+  const dispatch = useDispatch();
   const { id } = useParams();
-  const [items, SetItems] = useState([]);
+  const [items, SetItems] = useState({});
   const [posts, setPosts] = useState([]);
-  const [reviews, SetReviews] = useState([]);
-  const [count, SetCount] = useState(0);
+  const [ratingComp, setRatingComp] = useState([
+    {
+      name: "Product Details",
+      isActive: false,
+    },
+    {
+      name: "Rating & Reviews",
+      isActive: true,
+    },
+    {
+      name: "FAQs",
+      isActive: false,
+    },
+  ]);
+  const clickHandler = (index, setfun, fun) => {
+    const updatedRatingComp = fun.map((item, i) => ({
+      ...item,
+      isActive: i === index,
+    }));
+
+    setfun(updatedRatingComp);
+  };
+
+  const navigate = useNavigate();
   const count_handler = () => {
-    SetCount(count + 1);
+    dispatch(increment());
   };
   const ref = useRef();
 
@@ -23,25 +54,24 @@ const ItemDetails = () => {
     }
   };
   const count_handler_minus = () => {
-    if (count <= 0) {
-      return;
-    }
-    SetCount(count - 1);
+    return dispatch(decrement());
   };
+  const addToCartHandler = () => {
+    dispatch(addCart(items));
 
-  console.log(id);
+    navigate("/cart");
+    window.scrollTo(0, 0);
+  };
 
   useEffect(() => {
     getDataById(id)
       .then((data) => {
         SetItems(data.items);
-        getreview()
-          .then((data) => SetReviews(data))
-          .catch((err) => console.log(err));
       })
       .catch((err) => {
         console.log(err);
       });
+    window.scrollTo(0, 0);
   }, []);
   useEffect(() => {
     getData()
@@ -49,8 +79,8 @@ const ItemDetails = () => {
       .catch((err) => console.log(err));
   }, []);
   console.log(posts.items);
+
   console.log(items);
-  console.log(reviews);
   let discount = items.discount;
   let price = items.price;
   const color = ["#000000", "#EE2222", "#35A6D0"];
@@ -144,7 +174,7 @@ const ItemDetails = () => {
               >
                 <p>-</p>
               </button>
-              <div className="counter-count">{count}</div>
+              <div className="counter-count">{Count < 0 ? 0 : Count}</div>
               <button
                 className="plus  w-[24px] h-[70px] text-[35px]"
                 onClick={count_handler}
@@ -153,69 +183,44 @@ const ItemDetails = () => {
               </button>
             </div>
             <div className="cart-button flex w-[400px] h-[52px] py-[16px] px-[54px] justify-center items-center gap-[12px] rounded-[62px] bg-[#000000] hover:cursor-pointer">
-              <button className="text-[#FFFFFF]">Add to Cart</button>
+              {Cart == undefined ? (
+                <button className="text-[#FFFFFF]">Add to Cart</button>
+              ) : Cart.some((e) => {
+                  return e._id == id;
+                }) ? (
+                <button
+                  className="text-[#FFFFFF]"
+                  onClick={() => dispatch(removeCart(id))}
+                >
+                  Remove from Cart
+                </button>
+              ) : (
+                <button className="text-[#FFFFFF]" onClick={addToCartHandler}>
+                  Add to Cart
+                </button>
+              )}
             </div>
           </div>
         </div>
       </div>
-      <div className="flex flex-col mt-[80px]">
-        <div className="line-content flex max-w-[1251px] ml-[292px] gap-[354px]">
-          <div className="t-1">Product Details</div>
-          <div className="t-1">Rating & Reviews</div>
-          <div className="t-1">FAQs</div>
+      <div className="Rating-raviews">
+        <div className="Rating-raviews-btn ">
+          {ratingComp.map((rate, index) => (
+            <>
+              <button
+                onClick={() => clickHandler(index, setRatingComp, ratingComp)}
+                key={index}
+                className={`${rate.isActive ? "active" : ""}`}
+              >
+                {rate.name}
+              </button>
+            </>
+          ))}
         </div>
-        <div className="border bg-[#0000001a] opacity-50 w-[1251px] h-[1px] ml-[140px] "></div>
-        <div className="review-heading flex max-w-[1251px] gap-[60%] ml-[9.5%] mt-[20px]">
-          <div className="flex gap-[12px]">
-            <p className="w-[125px] h-[32px] font-Satoshi font-bold text-[23px] leading-[33.4px] text-[#000000]">
-              All Reviews
-            </p>
-            <p className="count-reviews mt-[5px] text-[#00000099] font-normal">
-              ({reviews.length})
-            </p>
-          </div>
 
-          <div className="flex gap-[10px] max-w-[345px] max-h-[48px]">
-            <div className=" slider-con w-[48px] h-[48px] rounded-[62px] flex justify-between bg-[#F0F0F0]">
-              <Sliders className="h-[24px] w-[24px]" />
-            </div>
-            <div className="lat-d w-[120px] h-[48px] rounded-[62px] flex justify-between bg-[#F0F0F0]">
-              <p className="lat-text w-[43px] h-[22px] text-[#000000]">
-                Latest
-              </p>
-              <ChevronDown className="w-[16px] h-[13px]" />
-            </div>
-            <button className="Review-btn bg-[#000000] text-[#FFFFFF]">
-              Write a Review
-            </button>
-          </div>
-        </div>
-        <div className="review-post  flex flex-wrap justify-center items-center mt-[50px] gap-[24px]">
-          {reviews.length > 0 ? (
-            reviews?.map((review, id) => {
-              return (
-                <Review
-                  key={id}
-                  name={review.name}
-                  comment={review.comment}
-                  rating={review.rating}
-                  date={review.posted_on}
-                />
-              );
-            })
-          ) : (
-            <div className="flex justify-center items-center text-[20px] text-[#000000] font-normal">
-              No Reviews
-            </div>
-          )}
-        </div>
-        <div className="more-reviews flex justify-center items-center">
-          <button className="w-[230px] h-[52px] py-[16px] px-[40px] rounded-[62px] border flex gap-[12px] mt-[30px]">
-            <p className="w-[140px] h-[22px] font-[Satoshi] font-medium text-[16px] leading-[21.6px] text-[#000000] ">
-              Load More Reviews
-            </p>
-          </button>
-        </div>
+        <div>{ratingComp[0].isActive == true ? <Product_Info /> : ""}</div>
+        <div>{ratingComp[1].isActive == true ? <Rating /> : ""}</div>
+        <div>{ratingComp[2].isActive == true ? <Faqs /> : ""}</div>
       </div>
       <div className="items-container flex flex-col justify-center items-center">
         <span className="title mt-[30px]">YOU MIGHT ALSO LIKE</span>

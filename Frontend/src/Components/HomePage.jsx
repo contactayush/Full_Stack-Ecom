@@ -3,7 +3,7 @@ import HomeInfo from "./HomeInfo";
 import NewArrivals from "./NewArrivals";
 import TopSelling from "./TopSelling";
 import Categories from "./Categories";
-
+import ReviewGallery from "./ReviewGallery/ReviewGallery";
 
 const HomePage = () => {
   return (
@@ -12,7 +12,6 @@ const HomePage = () => {
       <NewArrivals />
       <TopSelling />
       <Categories />
-      
     </div>
   );
 };

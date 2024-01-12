@@ -6,6 +6,7 @@ import Footer from "./Components/Footer/Footer";
 import CatogorieInfo from "./Components/Catagories_info/CatogorieInfo";
 import Form from "./Components/Form/Form";
 import ItemDetails from "./Components/itemdetails/ItemDetails";
+import Cart from "./Components/Cart/Cart";
 function App() {
   return (
     <div className="main">
@@ -21,6 +22,7 @@ function App() {
           </Route>
           <Route path="/form" element={<Form />} />
           <Route path="/itemdetails/:id" element={<ItemDetails />} />
+          <Route path="/cart" element={<Cart /> } />
         </Routes>
       </section>
       <Footer />
