@@ -41,7 +41,7 @@ const Navbar = () => {
           <img
             src={cart}
             alt="cart"
-            className="cart-logo"
+            className="cart-logo hover:cursor-pointer"
             onClick={navigateHandler}
           />
         </div>

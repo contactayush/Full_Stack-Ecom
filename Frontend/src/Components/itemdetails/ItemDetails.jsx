@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getDataById, getData } from "../Data/Data";
-
 import Card from "../Card";
 import { useSelector, useDispatch } from "react-redux";
 import { addCart, removeCart } from "../Redux/Slice/CartSlice";
@@ -17,6 +16,7 @@ const ItemDetails = () => {
   const { id } = useParams();
   const [items, SetItems] = useState({});
   const [posts, setPosts] = useState([]);
+
   const [ratingComp, setRatingComp] = useState([
     {
       name: "Product Details",

@@ -14,6 +14,7 @@ const Cart = () => {
   useEffect(() => {
     setTotalAmount(Cart.reduce((acc, curr) => acc + curr.price, 0));
   }, [Cart]);
+
   let discount = Cart.reduce(
     (acc, curr) => acc + curr.price - curr.discount,
     0
