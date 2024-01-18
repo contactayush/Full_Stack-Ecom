@@ -12,7 +12,7 @@ const corsOptions = {
   origin: process.env.frontend_url,
   Credentials: true,
 };
-app.use(cors({ corsOptions }));
+app.use(cors(corsOptions));
 app.use("/item", itemRouter);
 app.use("/user", userrouter);
 app.use("/review", reviewrouter);
