@@ -203,7 +203,7 @@ const ItemDetails = () => {
           </div>
         </div>
       </div>
-      <div className="Rating-raviews">
+      <div className="Rating-raviews flex flex-col justify-center items-center">
         <div className="Rating-raviews-btn ">
           {ratingComp.map((rate, index) => (
             <>
