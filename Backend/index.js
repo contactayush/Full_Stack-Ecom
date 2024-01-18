@@ -9,7 +9,7 @@ dotenv.config();
 const port = process.env.port_no;
 app.use(express.json());
 const corsOptions = {
-  origin: process.env.backend_url,
+  origin: process.env.frontend_url,
   Credentials: true,
 };
 app.use(cors({ corsOptions }));
