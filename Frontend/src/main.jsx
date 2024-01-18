@@ -6,7 +6,7 @@ import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./Components/Redux/Store.jsx";
-axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.baseURL = "https://full-stack-ecom-1gtd.vercel.app";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Provider store={store}>
