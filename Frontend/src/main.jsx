@@ -6,7 +6,8 @@ import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./Components/Redux/Store.jsx";
-axios.defaults.baseURL = "https://e-commerce-1818.azurewebsites.net";
+axios.defaults.baseURL = "http://localhost:4000";
+//https://e-commerce-1818.azurewebsites.net
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Provider store={store}>
