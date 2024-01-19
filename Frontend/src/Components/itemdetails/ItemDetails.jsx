@@ -235,6 +235,9 @@ const ItemDetails = () => {
                 rating={item.rating}
                 image={item.image_url}
                 discount={item.discount}
+                onClick={() => {
+                  navigate(`/itemdetails/${item._id}`);
+                }}
               />
             );
           })}
