@@ -3,10 +3,10 @@ import { useState } from "react";
 import { getData } from "./Data/Data.js";
 import Full_Star from "../assets/Full_Star.png";
 import Half_Star from "../assets/Half_Star.png";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const Card = ({ image, title, rating, price, discount, id }) => {
   const [items, setItem] = useState([]);
-  console.log(id);
+
   const navigate = useNavigate();
   useEffect(() => {
     getData()
