@@ -67,3 +67,18 @@ export const getreview = async () => {
   console.log(data);
   return data.reviews;
 };
+
+export const reviewdata = async (e) => {
+  const res = await axios
+    .post("/review/createreview", {
+      name: e.name,
+      rating: e.rating,
+      comment: e.comment,
+    })
+    .catch((err) => console.log(err));
+  if (res.status !== 200) {
+    console.log("Unexpected Error Occurred");
+  }
+  const data = await res.data;
+  return data;
+};

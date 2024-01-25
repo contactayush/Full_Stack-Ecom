@@ -25,7 +25,8 @@ const ReviewGallery = () => {
       <Swiper
         style={{
           marginTop: "50px",
-          width: "70%",
+          width: "100%",
+          marginLeft: "20px",
         }}
         modules={[Navigation, Pagination, Autoplay]}
         pagination={{
@@ -36,7 +37,7 @@ const ReviewGallery = () => {
           disableOnInteraction: false,
         }}
         loop={true}
-        slidesPerView={1}
+        slidesPerView={2}
       >
         {reviews.map((review, index) => (
           <SwiperSlide key={index}>
