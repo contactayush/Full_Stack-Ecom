@@ -182,7 +182,7 @@ const ItemDetails = () => {
                 <p>+</p>
               </button>
             </div>
-            <div className="cart-button flex w-[400px] h-[52px] py-[16px] px-[54px] justify-center items-center gap-[12px] rounded-[62px] bg-[#000000] hover:cursor-pointer">
+            <div className="cart-button flex w-[400px] h-[52px] py-[16px] px-[54px] justify-center items-center gap-[12px] rounded-[62px] bg-[#000000] hover:cursor-pointer ">
               {Cart == undefined ? (
                 <button className="text-[#FFFFFF]">Add to Cart</button>
               ) : Cart.some((e) => {
