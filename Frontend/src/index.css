@@ -31,7 +31,6 @@ html {
 }
 
 .container {
-  gap: 40px;
   align-items: center;
   display: flex;
   height: 48px;
@@ -71,8 +70,6 @@ html {
 }
 .shop {
   width: 45px;
-
-  display: flex;
 }
 
 .input-box {
@@ -114,18 +111,9 @@ html {
 }
 .cart-user {
   display: flex;
-  gap: 35px;
-  width: 106px;
-  height: 32px;
 }
-.user-logo {
-  width: 32px;
-}
-.cart-logo {
-  width: 32px;
-}
+
 .con {
-  display: flex;
   margin-top: 35px;
 }
 .con-content {
@@ -133,7 +121,6 @@ html {
   position: relative;
 }
 .back_img {
-  width: 1519px;
   z-index: -1;
   position: absolute;
 }
@@ -149,37 +136,28 @@ html {
   left: 54%;
   position: absolute;
 }
-.para {
-  width: 620px;
-  height: 173px;
-  margin: 53px 100px;
-}
+
 .p1 {
   font-family: Integral CF;
-  font-size: 64px;
+
   font-weight: 700;
-  line-height: 64px;
+
   letter-spacing: 0em;
   text-align: left;
 }
-.para2 {
-  width: 486px;
-  height: 33px;
-  margin: 45px 100px;
-}
+
 .p2 {
   font-family: Satoshi;
-  font-size: 16px;
+
   font-weight: 300;
-  line-height: 21px;
+
   letter-spacing: 0em;
   text-align: left;
 }
 
 .shop_btn {
-  width: 210px;
   height: 52px;
-  margin: 5px 92px;
+
   padding: 16px 54px 16px 54px;
   border-radius: 62px;
   gap: 12px;
@@ -193,8 +171,6 @@ html {
   cursor: pointer;
 }
 .content {
-  width: 596px;
-  height: 74px;
   margin: 60px 100px;
   gap: 16px;
   display: flex;
