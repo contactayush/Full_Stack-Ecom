@@ -16,10 +16,12 @@ const NewArrivals = () => {
     setisfull(!isfull);
   };
   return (
-    <div className="component_1">
-      <span className="title">NEW ARRIVALS</span>
+    <div className="component_1 ml-[75px] lg:ml-0">
+      <span className="title text-[32px] lg:text-[44px] leading-[38.4px] lg:leading-[57px] lg:ml-[73px]  mr-[60px] lg:mr-0">
+        NEW ARRIVALS
+      </span>
 
-      <div className="con-New_Arrival">
+      <div className=" flex flex-wrap gap-[35px] lg:max-w-[1305px] max-w-[486px]">
         {isfull
           ? items.map((item) => (
               <Card

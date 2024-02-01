@@ -6,7 +6,7 @@ import user from "../assets/user.png";
 import { Menu } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button, Drawer, Radio, Space } from "antd";
-
+import { X } from "lucide-react";
 const elements = ["On Sale", "New Arrivals", "Brands"];
 
 const MobileNavbar = () => {
@@ -28,6 +28,7 @@ const MobileNavbar = () => {
       >
         <Menu size={24} />
       </div>
+
       <Drawer
         title="Shop Menu"
         placement="left"
@@ -35,6 +36,9 @@ const MobileNavbar = () => {
         onClose={onClose}
         visible={open}
       >
+        <div className="close">
+          <X onClick={onClose} className="absolute top-[15px] left-[90%]" />
+        </div>
         {elements.map((element, id) => {
           return (
             <p key={id} className="cursor-pointer">
@@ -52,7 +56,7 @@ const Navbar = () => {
     navigate("/cart");
   };
   return (
-    <header className="container  lg:w-[1240px] w-[390px] lg:ml-[100px] ml-[15px] gap-[40px]">
+    <header className="container  lg:w-[1240px] w-[390px] lg:ml-[100px] ml-[10px] lg:gap-[40px] gap-[8px] ">
       <div className="hamburger lg:hidden ">
         <MobileNavbar />
       </div>

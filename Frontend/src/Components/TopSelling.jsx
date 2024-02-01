@@ -16,9 +16,9 @@ const TopSelling = () => {
     setisfull(!isfull);
   };
   return (
-    <div className="component_1">
+    <div className="component_1 ml-[75px] lg:ml-0">
       <span className="title">TOP SELLING</span>
-      <div className="con-New_Arrival">
+      <div className="flex flex-wrap gap-[35px] lg:max-w-[1305px] max-w-[486px]">
         {isfull
           ? items.map((item) => (
               <Card
