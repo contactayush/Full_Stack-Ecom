@@ -9,11 +9,12 @@ function valuetext(value) {
 export default function RangeSlider() {
   const [value, setValue] = useState([0, 300]);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-    console.log(newValue);
+  const handleChange = (event) => {
+    event.preventDefault();
+    setValue(value);
+    console.log(value);
   };
-
+``
   return (
     <Box sx={{ width: 247, height: 43 }}>
       <Slider

@@ -17,14 +17,14 @@ const HomeInfo = () => {
           alt="back"
           className="back_img lg:absolute relative lg:w-[1519px] w-[486px] lg:block hidden"
         />
-        <div className="con-content lg:w-[780px] w-[360px] bg-[#F2F0F1]">
+        <div className="con-content lg:w-[780px] w-full bg-[#F2F0F1]">
           <div className="lg:mt-[53px] lg:ml-[100px] mt-[53px] ml-[30px] w-[315px] h-[93px] lg:w-[620px] lg:h-[173px]">
             <p className="p1 text-[36px] lg:text-[64px] leading-[34px] lg:leading-[64px] text-[#000000]">
               FIND CLOTHES THAT MATCHES YOUR STYLE
             </p>
           </div>
-          <div className="lg:mt-[45px] lg:ml-[100px] mt-[40px] ml-[30px] w-[345px] h-[70px] lg:w-[486px] lg:h-[60px] text-[#00000099]">
-            <p className="p2 leading-[20px] text-[14px] lg:text-[16px] lg:leading-[21px]">
+          <div className="lg:mt-[45px] lg:ml-[100px] mt-[40px] ml-[30px] w-[345px] h-[70px] lg:w-[486px] lg:h-[60px] text-[#00000099] mb-[2rem] lg:mb-0">
+            <p className="p2 leading-[20px] text-[14px] lg:text-[16px] lg:leading-[21px] w-[80%] lg:w-[100%]">
               Browse through our diverse range of meticulously crafted garments,
               designed to bring out your individuality and cater to your sense
               of style.
@@ -36,7 +36,7 @@ const HomeInfo = () => {
             </button>
           </div>
           <div className="content flex-wrap lg:w-[596px] w-[390px] lg:h-[250px] h-[220px] lg:mt-[60px] mt-[60px] ml-[35px] lg:ml-[100px]">
-            <div className=" lg:w-[141px] lg:h-[74px] w-[108px] h-[48px]">
+            <div className=" lg:w-[141px] lg:h-[74px] w-[108px] h-[48px] lg:ml-0 ml-[15px]">
               <p className="count lg:w-[107px] lg:h-[54px] w-[64px] h-[32px] lg:text-[40px] text-[24px] lg:leading-[54px] leading-[32.4px]">
                 200+
               </p>
@@ -44,7 +44,7 @@ const HomeInfo = () => {
                 International Brands
               </p>
             </div>
-            <div className="line lg:h-[100px] h-[90px]"></div>
+            <div className="line lg:h-[100px] h-[70px]"></div>
             <div className="lg:w-[141px] lg:h-[74px] w-[108px] h-[48px] ">
               <p className="count  lg:w-[107px] lg:h-[54px] w-[64px] h-[32px] lg:text-[40px] text-[24px] lg:leading-[54px] leading-[32.4px]">
                 2000+
@@ -54,7 +54,7 @@ const HomeInfo = () => {
               </p>
             </div>
             <div className="line lg:h-[100px] lg:block hidden"></div>
-            <div className="lg:w-[141px] lg:h-[74px] w-[106px] h-[48px] lg:ml-0 ml-[96px]">
+            <div className="lg:w-[141px] lg:h-[74px] w-[106px] h-[150px] lg:ml-0 ml-[96px]">
               <p className="count  lg:w-[107px] lg:h-[54px] w-[64px] h-[32px] lg:text-[40px] text-[24px] lg:leading-[54px] leading-[32.4px]">
                 30000+
               </p>
@@ -74,18 +74,18 @@ const HomeInfo = () => {
         <img
           src={back_img_2}
           alt="back"
-          className="back_img  w-[390px] block lg:hidden"
+          className="back_img  w-full block lg:hidden"
         />
       </div>
       <img
         src={Vector}
         alt="vector"
-        className=" lg:hidden block z-[1] lg:left-[74%] left-[70%] lg:top-[96%] top-[105%] absolute"
+        className=" lg:hidden block z-[1] lg:left-[74%] left-[71%] lg:top-[96%] top-[116%] absolute"
       />
       <img
         src={small_star}
         alt="small_star"
-        className="w-[56px] h-[56px] top-[120%] left-[6%] absolute lg:hidden block z-[1]"
+        className="w-[56px] h-[56px] top-[143%] left-[4%] absolute lg:hidden block z-[1]"
       />
       <div className="flex-wrap flex lg:flex bg-[#000000] lg:h-[122px] h-[146px]">
         <img

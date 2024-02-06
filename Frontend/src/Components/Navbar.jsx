@@ -56,11 +56,11 @@ const Navbar = () => {
     navigate("/cart");
   };
   return (
-    <header className="container  lg:w-[1240px] w-[390px] lg:ml-[100px] ml-[10px] lg:gap-[40px] gap-[8px] ">
-      <div className="hamburger lg:hidden ">
+    <header className="container-11 w-full lg:ml-[100px] ml-[10px] lg:gap-[40px] gap-[20px] ">
+      <div className="hamburger lg:hidden">
         <MobileNavbar />
       </div>
-      <div className="logo">
+      <div className="logo lg:h-[22px] h-[30px] lg:leading-[3rem] ">
         <span className="logo-nav">SHOP.CO</span>
       </div>
       <div className="elements ">

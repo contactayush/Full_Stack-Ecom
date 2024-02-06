@@ -12,27 +12,31 @@ import g_pay from "../../assets/g_pay.png";
 const Footer = () => {
   return (
     <footer className="Footer-main-container">
-      <div className="container-1">
-        <div className="conatiner-1-text">
-          <p>STAY UPTO DATE ABOUT OUR LATEST OFFERS</p>
+      <div className="container-1 flex-wrap sm:flex-nowrap lg:max-w-[1240px] max-w-[358px] lg:h-[180px] h-[325px] lg:ml-[136px] ml-[28px]">
+        <div className="conatiner-1-text lg:w-[551px] lg:h-[94px] w-[297px] h-[115px]">
+          <p className="lg:text-[40px] text-[32px] lg:leading-[45px] leading-[35px]">
+            STAY UPTO DATE ABOUT OUR LATEST OFFERS
+          </p>
         </div>
 
-        <div className="container-1-contents">
-          <div className="email-con">
+        <div className="container-1-contents w-[311px] h-[42px] sm:w-[349px] sm:h-[108px] ml-[-36px] lg:ml-0">
+          <div className="email-con w-[311px] lg:w-[349px] ">
             <img src={email} alt="email" className="email-icon" />
             <input
               type="text"
-              className="email-input"
+              className="email-input lg:w-[349px] lg:h-[46px] w-[311px] h-[42px]"
               placeholder="Enter your email address"
             />
           </div>
-          <div className="subscribe-btn-con">
-            <button className="subscribe-btn">Subscribe to Newsletter</button>
+          <div className="subscribe-btn-con lg:max-w-[349px] max-w-[311px] ">
+            <button className="subscribe-btn  lg:w-[349px] w-[311px] lg:h-[46px] h-[42px]">
+              Subscribe to Newsletter
+            </button>
           </div>
         </div>
       </div>
-      <div className="container-2">
-        <div className="container-2-sub-con">
+      <div className="container-2  w-full lg:h-[266px] h-[630px] lg:flex-nowrap flex-wrap">
+        <div className="container-2-sub-con lg:flex-nowrap flex-wrap lg:max-w-[1240px] max-w-[392px] lg:ml-[100px] ml-[28px] ">
           <div className="container-2-content-1">
             <div>
               <span className=" container-logo">SHOP.CO</span>
@@ -58,60 +62,70 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="container-2-content">
-            <div className="container-2-content-title">
-              <span>COMPANY</span>
+          <div className="flex lg:gap-[128px] gap-[35px]  max-w-[363px] lg:max-w-[800px] lg:flex-nowrap flex-wrap">
+            <div className="container-2-content">
+              <div className="container-2-content-title">
+                <span>COMPANY</span>
+              </div>
+              <ul className="container-2-content-elements">
+                <li className="container-2-content-element">About </li>
+                <li className="container-2-content-element">Features</li>
+                <li className="container-2-content-element">Works</li>
+                <li className="container-2-content-element">Career</li>
+              </ul>
             </div>
-            <ul className="container-2-content-elements">
-              <li className="container-2-content-element">About </li>
-              <li className="container-2-content-element">Features</li>
-              <li className="container-2-content-element">Works</li>
-              <li className="container-2-content-element">Career</li>
-            </ul>
-          </div>
-          <div className="container-2-content ">
-            <div className="container-2-content-title">
-              <span>HELP</span>
-            </div>
+            <div className="container-2-content ">
+              <div className="container-2-content-title">
+                <span>HELP</span>
+              </div>
 
-            <ul className="container-2-content-elements">
-              <li className="container-2-content-element">Customer Support</li>
-              <li className="container-2-content-element">Delivery Details</li>
-              <li className="container-2-content-element">
-                Terms & Conditions
-              </li>
-              <li className="container-2-content-element">Privacy Policy</li>
-            </ul>
-          </div>
-          <div className="container-2-content">
-            <div className="container-2-content-title">
-              <span>FAQ</span>
+              <ul className="container-2-content-elements">
+                <li className="container-2-content-element">
+                  Customer Support
+                </li>
+                <li className="container-2-content-element">
+                  Delivery Details
+                </li>
+                <li className="container-2-content-element">
+                  Terms & Conditions
+                </li>
+                <li className="container-2-content-element">Privacy Policy</li>
+              </ul>
             </div>
+            <div className="container-2-content">
+              <div className="container-2-content-title">
+                <span>FAQ</span>
+              </div>
 
-            <ul className="container-2-content-elements">
-              <li className="container-2-content-element">Account </li>
-              <li className="container-2-content-element">Manage Deliveries</li>
-              <li className="container-2-content-element">Orders</li>
-              <li className="container-2-content-element">Payments</li>
-            </ul>
-          </div>
-          <div className="container-2-content">
-            <div className="container-2-content-title">
-              <span>RESOURCES</span>
+              <ul className="container-2-content-elements">
+                <li className="container-2-content-element">Account </li>
+                <li className="container-2-content-element">
+                  Manage Deliveries
+                </li>
+                <li className="container-2-content-element">Orders</li>
+                <li className="container-2-content-element">Payments</li>
+              </ul>
             </div>
+            <div className="container-2-content">
+              <div className="container-2-content-title">
+                <span>RESOURCES</span>
+              </div>
 
-            <ul className="container-2-content-elements">
-              <li className="container-2-content-element">Free eBooks</li>
-              <li className="container-2-content-element">
-                Development Tutorial
-              </li>
-              <li className="container-2-content-element">How to - Blog</li>
-              <li className="container-2-content-element">Youtube Playlist</li>
-            </ul>
+              <ul className="container-2-content-elements">
+                <li className="container-2-content-element">Free eBooks</li>
+                <li className="container-2-content-element">
+                  Development Tutorial
+                </li>
+                <li className="container-2-content-element">How to - Blog</li>
+                <li className="container-2-content-element">
+                  Youtube Playlist
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div className="footer-line"></div>
-        <div className="container-3">
+        <div className="footer-line lg:w-[1278px] w-[358px]   lg:mt-[15px] lg:ml-[99px] mt-[342px] ml-[22px]"></div>
+        <div className="container-3 lg:max-w-[1288px] max-w-[392px] lg:ml-[92px] ml-[60px] gap-[20px] lg:gap-0 lg:mt-0 mt-[10px] flex-wrap lg:flex-nowrap">
           <div className="container-3-content">
             <span className="container-3-content-text">
               Shop.co © 2000-2023, All Rights Reserved

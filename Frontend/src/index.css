@@ -21,7 +21,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+.main {
+  overflow: hidden;
+}
 html {
   scroll-behavior: smooth;
 }
@@ -30,7 +32,7 @@ html {
   height: 100%;
 }
 
-.container {
+.container-11 {
   align-items: center;
   display: flex;
   height: 48px;
@@ -40,8 +42,6 @@ html {
 
 .logo {
   width: 160px;
-  height: 22px;
-  line-height: 3rem;
 }
 
 .logo-nav {
@@ -186,7 +186,7 @@ html {
   font-family: Satoshi;
 
   font-weight: 400;
-  
+
   letter-spacing: 0em;
   text-align: left;
 }
@@ -256,7 +256,6 @@ html {
   border: red;
 }
 .view_btn {
-  width: 218px;
   height: 52px;
   margin: 5px 92px;
   padding: 16px 54px 16px 54px;
@@ -272,9 +271,7 @@ html {
   color: #ffffff;
   transition: ease-in-out 0.5s;
 }
-.view_all_btn {
-  margin-left: 50px;
-}
+
 .View_text {
   font-family: Satoshi;
   font-size: 16px;
@@ -286,15 +283,12 @@ html {
   height: 22px;
 }
 .arrival-line {
-  width: 1240px;
   background: #0000001a;
   border: 0.5px solid #0000001a;
 }
 .categories-con {
-  width: 1228px;
-  height: 750px;
   margin-top: 30px;
-  margin-left: 146px;
+
   border-radius: 40px;
   background: #f0f0f0;
   display: flex;
@@ -305,16 +299,13 @@ html {
   flex-wrap: wrap;
 }
 .categories-heading {
-  width: 687px;
-  height: 58px;
   margin-top: 30px;
-  margin-left: 276px;
 }
 .categories-heading p {
   font-family: Integral CF;
-  font-size: 48px;
+
   font-weight: 700;
-  line-height: 58px;
+
   letter-spacing: 0em;
   text-align: center;
   color: #000000;
@@ -336,27 +327,17 @@ html {
   margin-left: 8px;
 }
 .categories-box-1 {
-  width: 407px;
-  height: 289px;
   margin-top: 40px;
-  margin-left: 64px;
 }
 .categories-box-2 {
-  width: 613px;
-  height: 292px;
   margin-top: 39px;
   margin-left: 17px;
 }
 
 .categories-box-3 {
-  width: 684px;
-  height: 289px;
   margin-top: 10px;
-  margin-left: 64px;
 }
 .categories-box-4 {
-  width: 407px;
-  height: 289px;
   margin-top: 10px;
 }
 .categories-images-2 {
@@ -373,32 +354,25 @@ html {
   transition: ease-out 0.5s;
 }
 .container-1 {
-  max-width: 1240px;
-  height: 180px;
   margin-top: 40px;
-  margin-left: 136px;
+
   padding: 36px 64px 36px 64px;
   border-radius: 20px;
   justify-content: space-between;
   display: flex;
   background: #000000;
 }
-.conatiner-1-text {
-  width: 551px;
-  height: 94px;
-}
+
 .conatiner-1-text p {
   font-family: Integral CF;
-  font-size: 40px;
+
   font-weight: 700;
-  line-height: 45px;
+
   letter-spacing: 0em;
   text-align: left;
   color: #ffffff;
 }
 .email-input {
-  width: 349px;
-  height: 46px;
   padding: 12px 16px 12px 16px;
   border-radius: 62px;
   text-align: center;
@@ -406,18 +380,12 @@ html {
 }
 
 .container-1-contents {
-  width: 349px;
-  height: 108px;
   gap: 14px;
   display: flex;
   flex-direction: column;
 }
-.subscribe-btn-con {
-  max-width: 349px;
-}
+
 .subscribe-btn {
-  width: 349px;
-  height: 46px;
   padding: 12px 16px 12px 16px;
   border-radius: 62px;
   font-family: Satoshi;
@@ -456,8 +424,8 @@ html {
   margin-top: 22px;
   justify-content: space-between;
   align-items: center;
-  margin-left: 100px;
-  max-width: 1240px;
+
+  
   height: 177px;
 }
 .container-2-content-1 {
@@ -481,8 +449,6 @@ html {
   list-style: none;
 }
 .container-2 {
-  width: 100%;
-  height: 266px;
   background: #f0f0f0;
 }
 .container-logo {
@@ -565,16 +531,16 @@ html {
   color: #00000099;
 }
 .footer-line {
-  width: 1278px;
+ 
   background: #0000001a;
   border: 1px solid #0000001a;
-  margin: 15px 99px;
+  
 }
 .container-3 {
   display: flex;
-  margin-left: 92px;
+ 
   justify-content: space-between;
-  max-width: 1288px;
+  
 }
 .payment-logos {
   display: flex;

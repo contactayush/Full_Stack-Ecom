@@ -16,12 +16,12 @@ const NewArrivals = () => {
     setisfull(!isfull);
   };
   return (
-    <div className="component_1 ml-[75px] lg:ml-0">
-      <span className="title text-[32px] lg:text-[44px] leading-[38.4px] lg:leading-[57px] lg:ml-[73px]  mr-[60px] lg:mr-0">
+    <div className="component_1 ">
+      <span className="title w-[269px] h-[38px] lg:w-[403px] lg:h-[58px] text-center text-[32px] lg:text-[44px] leading-[38.4px] lg:leading-[57px] lg:ml-[73px]  mr-[20px] lg:mr-0">
         NEW ARRIVALS
       </span>
 
-      <div className=" flex flex-wrap gap-[35px] lg:max-w-[1305px] max-w-[486px]">
+      <div className=" flex flex-wrap gap-[35px] lg:max-w-[1305px] max-w-[486px] ml-[45px] lg:ml-0">
         {isfull
           ? items.map((item) => (
               <Card
@@ -48,12 +48,15 @@ const NewArrivals = () => {
                 />
               ))}
       </div>
-      <div className="view_all_btn">
-        <button className="view_btn" onClick={Click_Handler}>
+      <div className=" lg:ml-[50px]">
+        <button
+          className="view_btn lg:w-[218px] w-[358px]"
+          onClick={Click_Handler}
+        >
           <span className="View_text">{isfull ? `View Less` : `View All`}</span>
         </button>
       </div>
-      <div className="arrival-line"></div>
+      <div className="arrival-line lg:w-[1240px] w-[358px]"></div>
     </div>
   );
 };

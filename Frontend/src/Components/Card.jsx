@@ -19,7 +19,7 @@ const Card = ({ image, title, rating, price, discount, id }) => {
   };
   return (
     <div
-      className="card-body hover:cursor-pointer w-[160px] lg:w-[295px]"
+      className="card-body hover:cursor-pointer w-[144px] lg:w-[295px]"
       onClick={() => navigationhandler(`/itemdetails/${id}`)}
     >
       <div className="card-image ">
@@ -28,7 +28,7 @@ const Card = ({ image, title, rating, price, discount, id }) => {
           className="card-img lg:w-[295px] lg:h-[298px] w-[198px] h-[200.01px] lg:rounded-[20px] rounded-[13.42px]"
         />
       </div>
-      <div className="main-cloth-clothname font-bold text-[16px] lg:text-[20px] mt-[20px] mb-[20px]">
+      <div className="main-cloth-clothname text-center lg:text-left font-bold text-[16px] lg:text-[20px] mt-[20px] mb-[20px]">
         {title}
       </div>
       <div className="main-cloth-rating">

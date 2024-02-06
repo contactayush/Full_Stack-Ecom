@@ -16,9 +16,11 @@ const TopSelling = () => {
     setisfull(!isfull);
   };
   return (
-    <div className="component_1 ml-[75px] lg:ml-0">
-      <span className="title">TOP SELLING</span>
-      <div className="flex flex-wrap gap-[35px] lg:max-w-[1305px] max-w-[486px]">
+    <div className="component_1 ">
+      <span className="title w-[269px] h-[38px] lg:w-[403px] lg:h-[58px] text-center text-[32px] lg:text-[44px] leading-[38.4px] lg:leading-[57px] lg:ml-[73px]  mr-[20px] lg:mr-0">
+        TOP SELLING
+      </span>
+      <div className="flex flex-wrap gap-[35px] lg:max-w-[1305px] max-w-[486px] ml-[45px] lg:ml-0">
         {isfull
           ? items.map((item) => (
               <Card
@@ -46,7 +48,10 @@ const TopSelling = () => {
               ))}
       </div>
       <div className="view_all_btn">
-        <button className="view_btn" onClick={Click_Handler}>
+        <button
+          className="view_btn lg:w-[218px] w-[358px]"
+          onClick={Click_Handler}
+        >
           <span className="View_text">{isfull ? `View Less` : `View All`}</span>
         </button>
       </div>
