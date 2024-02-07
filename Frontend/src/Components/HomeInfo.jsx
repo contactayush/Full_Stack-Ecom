@@ -4,7 +4,7 @@ import back_img_2 from "../assets/back_img_2.png";
 import Vector from "../assets/Vector.png";
 import small_star from "../assets/small_star.png";
 import Versace from "../assets/Versace.png";
-import Gucci from "../assets/Gucci.png";
+import Gucci from "../assets/gucci.png";
 import prada from "../assets/prada.png";
 import zara from "../assets/zara.png";
 import calvin from "../assets/calvin.png";

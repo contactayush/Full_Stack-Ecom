@@ -4,11 +4,11 @@ import twitter from "../../assets/twitter.png";
 import facebook from "../../assets/facebook.png";
 import instagram from "../../assets/instagram.png";
 import github from "../../assets/github.png";
-import visa from "../../assets/visa.png";
-import mastercard from "../../assets/mastercard.png";
-import paypal from "../../assets/paypal.png";
+import visa from "../../assets/Visa.png";
+import mastercard from "../../assets/Mastercard.png";
+import paypal from "../../assets/Paypal.png";
 import i_pay from "../../assets/i_pay.png";
-import g_pay from "../../assets/g_pay.png";
+import g_pay from "../../assets/g_Pay.png";
 const Footer = () => {
   return (
     <footer className="Footer-main-container">

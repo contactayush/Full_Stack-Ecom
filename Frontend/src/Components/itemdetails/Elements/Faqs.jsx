@@ -1,5 +1,5 @@
 import React from "react";
-import Faqsconainer from "./faqsconainer";
+import Faqsconainer from "./Faqsconainer";
 
 const Faqs = () => {
   const faqs = [
