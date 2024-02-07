@@ -50,13 +50,13 @@ const NewArrivals = () => {
       </div>
       <div className=" lg:ml-[50px]">
         <button
-          className="view_btn lg:w-[218px] w-[358px]"
+          className="view_btn lg:w-[218px] w-[325px]"
           onClick={Click_Handler}
         >
           <span className="View_text">{isfull ? `View Less` : `View All`}</span>
         </button>
       </div>
-      <div className="arrival-line lg:w-[1240px] w-[358px]"></div>
+      <div className="arrival-line lg:w-[1240px] w-[320px]"></div>
     </div>
   );
 };

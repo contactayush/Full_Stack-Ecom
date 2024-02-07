@@ -80,12 +80,12 @@ const HomeInfo = () => {
       <img
         src={Vector}
         alt="vector"
-        className=" lg:hidden block z-[1] lg:left-[74%] left-[71%] lg:top-[96%] top-[116%] absolute"
+        className=" lg:hidden block z-[1] lg:left-[74%] left-[66%] lg:top-[96%] top-[96%] absolute"
       />
       <img
         src={small_star}
         alt="small_star"
-        className="w-[56px] h-[56px] top-[143%] left-[4%] absolute lg:hidden block z-[1]"
+        className="w-[56px] h-[56px] top-[125%] left-[4%] absolute lg:hidden block z-[1]"
       />
       <div className="flex-wrap flex lg:flex bg-[#000000] lg:h-[122px] h-[146px]">
         <img

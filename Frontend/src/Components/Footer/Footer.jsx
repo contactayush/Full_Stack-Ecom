@@ -12,30 +12,30 @@ import g_pay from "../../assets/g_pay.png";
 const Footer = () => {
   return (
     <footer className="Footer-main-container">
-      <div className="container-1 flex-wrap sm:flex-nowrap lg:max-w-[1240px] max-w-[358px] lg:h-[180px] h-[325px] lg:ml-[136px] ml-[28px]">
+      <div className="container-1 flex-wrap sm:flex-nowrap lg:max-w-[1240px] max-w-[325px] lg:h-[180px] h-[325px] lg:ml-[136px] ml-[18px]">
         <div className="conatiner-1-text lg:w-[551px] lg:h-[94px] w-[297px] h-[115px]">
           <p className="lg:text-[40px] text-[32px] lg:leading-[45px] leading-[35px]">
             STAY UPTO DATE ABOUT OUR LATEST OFFERS
           </p>
         </div>
 
-        <div className="container-1-contents w-[311px] h-[42px] sm:w-[349px] sm:h-[108px] ml-[-36px] lg:ml-0">
-          <div className="email-con w-[311px] lg:w-[349px] ">
+        <div className="container-1-contents w-[280px] h-[42px] sm:w-[349px] sm:h-[108px] ml-[-36px] lg:ml-0">
+          <div className="email-con w-[280px] lg:w-[349px] ">
             <img src={email} alt="email" className="email-icon" />
             <input
               type="text"
-              className="email-input lg:w-[349px] lg:h-[46px] w-[311px] h-[42px]"
+              className="email-input lg:w-[349px] lg:h-[46px] w-[280px] h-[42px]"
               placeholder="Enter your email address"
             />
           </div>
-          <div className="subscribe-btn-con lg:max-w-[349px] max-w-[311px] ">
-            <button className="subscribe-btn  lg:w-[349px] w-[311px] lg:h-[46px] h-[42px]">
+          <div className="subscribe-btn-con lg:max-w-[349px] max-w-[280px] ">
+            <button className="subscribe-btn  lg:w-[349px] w-[280px] lg:h-[46px] h-[42px]">
               Subscribe to Newsletter
             </button>
           </div>
         </div>
       </div>
-      <div className="container-2  w-full lg:h-[266px] h-[630px] lg:flex-nowrap flex-wrap">
+      <div className="container-2  w-full lg:h-[266px] h-[640px] lg:flex-nowrap flex-wrap">
         <div className="container-2-sub-con lg:flex-nowrap flex-wrap lg:max-w-[1240px] max-w-[392px] lg:ml-[100px] ml-[28px] ">
           <div className="container-2-content-1">
             <div>
@@ -62,7 +62,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="flex lg:gap-[128px] gap-[35px]  max-w-[363px] lg:max-w-[800px] lg:flex-nowrap flex-wrap">
+          <div className="flex lg:gap-[128px] gap-[45px]  max-w-[363px] lg:max-w-[800px] lg:flex-nowrap flex-wrap">
             <div className="container-2-content">
               <div className="container-2-content-title">
                 <span>COMPANY</span>
@@ -124,14 +124,14 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="footer-line lg:w-[1278px] w-[358px]   lg:mt-[15px] lg:ml-[99px] mt-[342px] ml-[22px]"></div>
+        <div className="footer-line lg:w-[1278px] w-[320px]   lg:mt-[15px] lg:ml-[99px] mt-[370px] ml-[22px]"></div>
         <div className="container-3 lg:max-w-[1288px] max-w-[392px] lg:ml-[92px] ml-[60px] gap-[20px] lg:gap-0 lg:mt-0 mt-[10px] flex-wrap lg:flex-nowrap">
           <div className="container-3-content">
             <span className="container-3-content-text">
-              Shop.co © 2000-2023, All Rights Reserved
+              Shop.co © 2000-2023, All Rights Reserved.
             </span>
           </div>
-          <div className="payment-logos">
+          <div className="payment-logos mt-1">
             <div className="visa">
               <img src={visa} alt="logo" />
             </div>

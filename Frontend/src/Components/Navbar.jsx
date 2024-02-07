@@ -56,7 +56,7 @@ const Navbar = () => {
     navigate("/cart");
   };
   return (
-    <header className="container-11 w-full lg:ml-[100px] ml-[10px] lg:gap-[40px] gap-[20px] ">
+    <header className="container-11 w-full lg:ml-[100px] ml-[10px] lg:gap-[40px] gap-[12px] ">
       <div className="hamburger lg:hidden">
         <MobileNavbar />
       </div>
@@ -93,7 +93,7 @@ const Navbar = () => {
         placeholder="Search for Products..."
         className="input-box lg:flex hidden "
       />
-      <div className="cart-user lg:w-[106px] w-[96px] lg:h-[32px] h-[24px] gap-[20px] mt-[10px]">
+      <div className="cart-user lg:w-[106px] w-[96px] lg:h-[32px] h-[24px] lg:gap-[20px] gap-[7px] mt-[10px]">
         <div className="w-[24px] h-[24px]">
           <img
             src={cart}
